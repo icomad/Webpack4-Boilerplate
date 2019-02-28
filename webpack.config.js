@@ -1,10 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [path.join(__dirname + '/src/js/index.js'), path.join(__dirname + '/src/sass/main.scss')],
   output: {
-    path: path.join(__dirname, 'build/assets/'),
-    filename: 'js/bundle.js',
+    path: path.join(__dirname, '/build/'),
+    filename: 'assets/js/bundle.js',
   },
   module: {
     rules: [
@@ -22,7 +23,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'css/[name].css',
+              name: 'assets/css/[name].css',
             }
           },
           {
@@ -38,7 +39,16 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.pug$/,
+        use: ['pug-loader']
+      },
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname + '/src/index.pug')
+    }),
+  ],
 };
