@@ -5,6 +5,6 @@
 ---
 
 **TODO:**
-+ Bulma implementation
++ Write a useful README
 
 ---
