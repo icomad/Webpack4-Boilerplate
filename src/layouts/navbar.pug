@@ -1,0 +1,17 @@
+mixin navLink(link, name, active)
+      a.navbar-item(href=link, class={'is-active': current === active}) #{name}
+
+header
+  nav.navbar(class=hasBackgroundColor)
+    .container
+      .navbar-brand
+        a.navbar-item
+          span Brand Logo
+        a.navbar-burger.burger(role="button", data-target="navbarMenuHeroA")
+          span
+          span
+          span
+      .navbar-menu(id="navbarMenuHeroA")
+        .navbar-end
+          +navLink('index.html', 'Home', 'index')
+          +navLink('about.html', 'About', 'about')

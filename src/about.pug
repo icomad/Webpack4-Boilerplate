@@ -1,0 +1,15 @@
+extends layouts/base
+
+block config
+  - var current = 'about'
+  - var hasBackgroundColor = 'has-background-info'
+
+block title
+  title About - Your New Project
+
+block content
+  main
+    section.hero.is-fullheight-with-navbar.is-info
+      .hero-body
+        .container.has-text-centered
+          h1.title About Page

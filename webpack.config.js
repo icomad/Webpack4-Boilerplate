@@ -1,6 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function pugPage(name) {
+  return new HtmlWebpackPlugin({
+    filename: name + '.html',
+    template: path.join(__dirname + `/src/${name}.pug`),
+    inject: false
+  })
+}
+
 module.exports = {
   entry: [path.join(__dirname + '/src/js/index.js'), path.join(__dirname + '/src/sass/main.scss')],
   output: {
@@ -47,8 +55,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname + '/src/index.pug')
-    }),
+    pugPage('index'),
+    pugPage('about')
   ],
 };
